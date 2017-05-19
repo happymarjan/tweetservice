@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package tweetservice;
+
+service TweetsService{
+	rpc GetTweets(EmptyParam) returns (stream Tweet) {}
+}
+
+message EmptyParam {}
+
+message Tweet{
+	string author = 1;
+	int32  date = 2;
+	string text = 3;
+}

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_outer_classname = "TweetsService Proto";
+
+package tweetservice;
+
+service TweetsService{
+	rpc GetTweet(EmptyParam) returns (stream Statuslist) {}
+}
+
+message EmptyParam {}
+
+message Tweet{
+	string author = 1;
+	int32  date = 2;
+	string text = 3;
+}
+
+message Tweetlist{
+	repeated Tweet tweetsingle=1;
+}
+
+message Status{
+	string text =1;
+}
+
+message Statuslist{
+	repeated Status StatusArray=1;
+}
